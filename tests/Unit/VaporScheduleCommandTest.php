@@ -40,7 +40,7 @@ class VaporScheduleCommandTest extends TestCase
         }
         if (version_compare($this->app->version(), 11, '>=')) {
             Cache::shouldReceive('driver')->twice()->andReturn($fake);
-        } elseif(! Str::startsWith($this->app->version(), '9')) {
+        } elseif (! Str::startsWith($this->app->version(), '9')) {
             Cache::shouldReceive('driver')->once()->andReturn($fake);
         }
         $fake->shouldNotReceive('forget')->with('vapor:schedule:lock');
